@@ -1,5 +1,10 @@
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+
 const App = () => {
-  return <div>App</div>;
+  return <Routes>
+    <Route path="/" element={<Home/>}></Route>
+  </Routes>;
 };
 
 export default App;
