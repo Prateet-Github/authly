@@ -1,112 +1,182 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Logo } from "../common/Logo";
-import { Menu, Github, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Github, BookOpen, Layers, Zap, Shield, Terminal, ChevronRight } from "lucide-react";
 import { FaNpm } from "react-icons/fa6";
+import { Logo } from "../common/Logo"; // Assuming you have this
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  
+  // Check if we are currently inside the documentation section
+  const isDocsPage = location.pathname.startsWith("/docs");
 
-  const internalLinks = [
-    { label: "Documentation", to: "/docs" },
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  // --- Navigation Data ---
+  const mainLinks = [
     { label: "Features", to: "/features" },
     { label: "FAQ", to: "/faq" },
     { label: "Security", to: "/security" },
+    { label: "Docs", to: "/docs" }, // Link to switch to docs context
   ];
 
   const externalLinks = [
-    {
-      label: "GitHub",
-      href: "https://github.com/your-repo",
-      icon: Github,
-    },
-    {
-      label: "NPM",
-      href: "https://www.npmjs.com/package/your-package",
-      icon: FaNpm,
-    },
+    { label: "GitHub", href: "https://github.com/your-repo", icon: Github },
+    { label: "NPM", href: "https://npmjs.com", icon: FaNpm },
+  ];
+
+  // Duplicate of Sidebar links for Mobile view context
+  const docsLinks = [
+    { label: "Introduction", href: "#introduction", icon: BookOpen },
+    { label: "Installation", href: "#installation", icon: Terminal },
+    { label: "Quick Start", href: "#getting-started", icon: Zap },
+    { label: "Authentication", href: "#auth", icon: Shield },
+    { label: "Sessions", href: "#sessions", icon: Layers },
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-        {/* Brand */}
-        <Link to="/" className="flex items-center">
-          <Logo size={36} />
-          <span className="text-2xl font-extrabold bg-linear-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
-            Authly
-          </span>
-        </Link>
+    <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#0a0a0a]/80 backdrop-blur-md supports-backdrop-filter:bg-[#0a0a0a]/60">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+        
+        {/* --- Left: Brand --- */}
+        <div className="flex items-center gap-4">
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white shadow-inner group-hover:bg-indigo-500 transition-colors">
+               <Logo size={20} color="white" /> 
+            </div>
+            <span className="text-xl font-bold tracking-tight">
+              Authly
+            </span>
+          </Link>
+          
+          {/* Breadcrumb / Section Badge (Visible on Desktop) */}
+          {isDocsPage && (
+            <div className="hidden md:flex items-center text-sm">
+              <span className="mx-3 text-slate-600">/</span>
+              <span className="font-medium text-slate-200">Docs</span>
+            </div>
+          )}
+        </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-
-        {/* Desktop Nav */}
+        {/* --- Center: Desktop Navigation --- */}
         <ul className="hidden md:flex items-center gap-8">
-          {internalLinks.map((item) => (
+          {mainLinks.map((item) => (
             <li key={item.label}>
               <Link
                 to={item.to}
-                className="font-semibold text-white/80 transition-colors hover:text-purple-400"
+                className={`text-sm font-medium transition-colors hover:text-indigo-400 ${
+                  location.pathname === item.to ? "text-white" : "text-slate-400"
+                }`}
               >
                 {item.label}
               </Link>
             </li>
           ))}
+        </ul>
 
-          <li className="h-6 w-px bg-white/10" />
-
-          {externalLinks.map((item) => (
-            <li key={item.label}>
+        {/* --- Right: External Links & Mobile Toggle --- */}
+        <div className="flex items-center gap-4">
+          {/* External Icons (Desktop) */}
+          <div className="hidden md:flex items-center gap-4 border-l border-white/10 pl-4">
+            {externalLinks.map((item) => (
               <a
+                key={item.label}
                 href={item.href}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer"
+                className="text-slate-400 hover:text-white transition-colors"
                 aria-label={item.label}
-                className="text-white/80 transition-all hover:text-purple-400"
               >
-                <item.icon className="h-6 w-6 hover:scale-110" />
+                <item.icon className="h-5 w-5" />
               </a>
-            </li>
-          ))}
-        </ul>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden flex items-center justify-center rounded-md p-2 text-slate-400 hover:bg-white/10 hover:text-white transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden absolute w-full border-t border-white/10 bg-black">
-          <ul className="flex flex-col">
-            {internalLinks.map((item) => (
-              <li key={item.label} className="border-b border-white/10">
-                <Link
-                  to={item.to}
-                  onClick={() => setMenuOpen(false)}
-                  className="block py-4 text-center font-semibold text-white/80 hover:text-purple-400"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+      {/* ================= MOBILE MENU DRAWER ================= */}
+      {/* Logic: 
+          If isDocsPage -> Show Docs Links (Sidebar) FIRST, then Main Links.
+          Else -> Show Main Links only.
+      */}
+      {isOpen && (
+        <div className="absolute top-16 left-0 w-full h-[calc(100vh-4rem)] bg-[#0a0a0a] border-b border-white/10 overflow-y-auto md:hidden animate-in slide-in-from-top-2 duration-200">
+          <div className="p-4 space-y-6">
+            
+            {/* Context: Documentation Links (Only if on Docs page) */}
+            {isDocsPage && (
+              <div className="space-y-3">
+                <div className="px-2 text-xs font-semibold uppercase tracking-wider text-indigo-400">
+                  On This Page
+                </div>
+                <ul className="space-y-1">
+                  {docsLinks.map((link) => (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-300 hover:bg-white/5 hover:text-white transition-all border border-transparent hover:border-white/5"
+                      >
+                        <link.icon className="h-4 w-4 text-slate-500" />
+                        <span className="text-sm font-medium">{link.label}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <hr className="border-white/5 my-4" />
+              </div>
+            )}
 
-            {externalLinks.map((item) => (
-              <li key={item.label} className="border-b border-white/10">
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center py-4 text-white/80 hover:text-purple-400"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+            {/* Context: Main Site Navigation */}
+            <div className="space-y-3">
+               <div className="px-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                  Menu
+               </div>
+               <ul className="space-y-1">
+                 {mainLinks.map((link) => (
+                   <li key={link.label}>
+                     <Link
+                       to={link.to}
+                       className="flex items-center justify-between px-3 py-3 rounded-lg text-slate-300 hover:bg-white/5 hover:text-white transition-all"
+                     >
+                       <span className="text-sm font-medium">{link.label}</span>
+                       <ChevronRight className="h-4 w-4 text-slate-600" />
+                     </Link>
+                   </li>
+                 ))}
+               </ul>
+            </div>
+
+            {/* Mobile Footer Area */}
+            <div className="pt-6 mt-4 border-t border-white/5 flex items-center justify-between px-2">
+               <span className="text-xs text-slate-500">v1.0.0</span>
+               <div className="flex gap-4">
+                 {externalLinks.map((link) => (
+                   <a 
+                    key={link.label} 
+                    href={link.href}
+                    className="text-slate-500 hover:text-white transition-colors"
+                   >
+                     <link.icon className="h-5 w-5" />
+                   </a>
+                 ))}
+               </div>
+            </div>
+
+          </div>
         </div>
       )}
     </nav>

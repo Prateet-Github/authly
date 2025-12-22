@@ -1,4 +1,4 @@
-import { Logo } from "../../common/Logo";
+import { Logo } from "../../components/common/Logo";
 import { motion } from "framer-motion";
 import { Github, Twitter } from "lucide-react";
 import {
@@ -8,6 +8,7 @@ import {
   FaDiscord,
   FaSlack,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const ProviderBadge = ({ icon, name }) => (
   <div className="flex items-center gap-3 px-5 py-2.5 bg-white/5 rounded-full border border-white/10 backdrop-blur-sm hover:border-purple-400/40 transition">
@@ -17,8 +18,14 @@ const ProviderBadge = ({ icon, name }) => (
 );
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/docs");
+  };
+
   return (
-    <section className="relative min-h-screen flex flex-col justify-around pb-20">
+    <section className="relative min-h-screen flex flex-col justify-around pb-16">
       {/* Top content */}
       <div className="flex flex-col items-center text-center gap-10 px-4">
         {/* Logo + Title */}
@@ -40,12 +47,15 @@ const Hero = () => {
         {/* Actions */}
         <div className="flex gap-4">
           {/* Secondary */}
-          <button className="px-6 py-3 cursor-pointer rounded-full border border-purple-400 text-purple-400 font-semibold transition hover:bg-purple-400/10">
+          <button className="px-6 py-3 cursor-pointer rounded-full border border-purple-400 text-purple-400 font-semibold transition md:hover:bg-purple-400/10">
             Learn More
           </button>
 
           {/* Primary */}
-          <button className="px-6 py-3 cursor-pointer rounded-full bg-linear-to-r from-purple-400 to-indigo-500 text-white font-semibold transition hover:shadow-[0_0_30px_rgba(167,139,250,0.6)]">
+          <button
+            onClick={handleClick}
+            className="px-6 py-3 cursor-pointer rounded-full bg-linear-to-r from-purple-400 to-indigo-500 text-white font-semibold transition md:hover:shadow-[0_0_30px_rgba(167,139,250,0.6)]"
+          >
             Get Started
           </button>
         </div>
