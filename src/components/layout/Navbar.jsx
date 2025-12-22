@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
         {/* Brand */}
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center">
           <Logo size={36} />
           <span className="text-2xl font-extrabold bg-linear-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
             Authly
@@ -69,9 +69,9 @@ const Navbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={item.label}
-                className="text-white/80 transition-all hover:text-purple-400 hover:scale-110"
+                className="text-white/80 transition-all hover:text-purple-400"
               >
-                <item.icon className="h-6 w-6" />
+                <item.icon className="h-6 w-6 hover:scale-110" />
               </a>
             </li>
           ))}
@@ -80,7 +80,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-white/10 bg-black">
+        <div className="md:hidden absolute w-full border-t border-white/10 bg-black">
           <ul className="flex flex-col">
             {internalLinks.map((item) => (
               <li key={item.label} className="border-b border-white/10">
@@ -100,9 +100,8 @@ const Navbar = () => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 py-4 text-white/80 hover:text-purple-400"
+                  className="flex items-center justify-center py-4 text-white/80 hover:text-purple-400"
                 >
-                  <item.icon className="h-6 w-6" />
                   {item.label}
                 </a>
               </li>

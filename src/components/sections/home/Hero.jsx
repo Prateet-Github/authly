@@ -18,11 +18,11 @@ const ProviderBadge = ({ icon, name }) => (
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-between py-24">
+    <section className="relative min-h-screen flex flex-col justify-around pb-20">
       {/* Top content */}
       <div className="flex flex-col items-center text-center gap-10 px-4">
         {/* Logo + Title */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center">
           <div className="scale-90 md:scale-110">
             <Logo size={80} />
           </div>
@@ -52,7 +52,7 @@ const Hero = () => {
       </div>
 
       {/* Provider carousel */}
-      <div className="max-w-5xl mx-auto w-full overflow-hidden py-16">
+      <div className="max-w-5xl mx-auto w-full overflow-hidden">
         <motion.div
           className="flex gap-8 items-center"
           animate={{ x: [0, -1200] }}
