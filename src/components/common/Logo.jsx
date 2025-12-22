@@ -1,41 +1,42 @@
-export function Logo() {
+export function Logo({ size = 32, className = "" }) {
+  const gradientId = `logo-gradient-${size}`;
+
   return (
-    <div className="flex items-center gap-2">
-      <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+    <div className={`flex items-center ${className}`}>
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 100 100"
+        fill="none"
+        className="shrink-0"
+      >
         <defs>
-          <linearGradient
-            id="logo-gradient"
-            x1="0%"
-            y1="0%"
-            x2="100%"
-            y2="100%"
-          >
-            <stop offset="0%" style={{ stopColor: "#a78bfa" }} />
-            <stop offset="100%" style={{ stopColor: "#6366f1" }} />
+          <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#a78bfa" />
+            <stop offset="100%" stopColor="#6366f1" />
           </linearGradient>
         </defs>
+
         <path
-          d="M50 10 L80 25 L80 50 C80 70 65 85 50 90 C35 85 20 70 20 50 L20 25 Z"
-          stroke="url(#logo-gradient)"
+          d="M50 15 L75 27 L75 50 C75 67 63 80 50 85 C37 80 25 67 25 50 L25 27 Z"
+          stroke={`url(#${gradientId})`}
+          strokeWidth="5"
+          fill="none"
+        />
+
+        <rect x="40" y="50" width="20" height="20" rx="4" fill={`url(#${gradientId})`} />
+
+        <path
+          d="M42 50 L42 42 C42 36.5 46 32.5 50 32.5 C54 32.5 58 36.5 58 42 L58 50"
+          stroke={`url(#${gradientId})`}
           strokeWidth="4"
           fill="none"
+          strokeLinecap="round"
         />
-        <rect
-          x="42"
-          y="48"
-          width="16"
-          height="16"
-          rx="2"
-          fill="url(#logo-gradient)"
-        />
-        <path
-          d="M45 48 L45 42 C45 38.5 47.5 36 50 36 C52.5 36 55 38.5 55 42 L55 48"
-          stroke="url(#logo-gradient)"
-          strokeWidth="3"
-          fill="none"
-        />
+
+        <circle cx="50" cy="57" r="2.5" fill="#0f172a" />
+        <rect x="48.5" y="57" width="3" height="8" rx="1.5" fill="#0f172a" />
       </svg>
-      <span className="text-xl font-bold">Authly</span>
     </div>
   );
 }
