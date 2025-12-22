@@ -4,6 +4,7 @@ import Documents from "./pages/Documents.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import FAQ from "./pages/FAQ.jsx";
 import Features from "./pages/Features.jsx";
+import Security from "./pages/Security.jsx";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Route path="/docs" element={<Documents />}></Route>
       <Route path="/faq" element={<FAQ />}></Route>
       <Route path="/features" element={<Features />}></Route>
+      <Route path="security" element={<Security />}></Route>
     </Routes>
   );
 };
