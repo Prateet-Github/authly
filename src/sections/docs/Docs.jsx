@@ -205,7 +205,7 @@ await confirmPasswordReset(authly["http"], {
               </div>
 
               <h3 className="text-xl font-semibold text-white mt-8">
-                Option 1: Self-host Authly Server (Recommended)
+                Option (v1): Self-host Authly Server (Recommended)
               </h3>
 
               <p>Clone the official Authly server repository:</p>
@@ -224,9 +224,12 @@ npm install`}
 
               <CodeBlock
                 code={`PORT=5001
-MONGO_URI=your_mongodb_url
+NODE_ENV=development
+MONGODB_URI=your_mongodb_url
 JWT_ACCESS_SECRET=your_access_secret
-JWT_REFRESH_SECRET=your_refresh_secret`}
+JWT_REFRESH_SECRET=your_refresh_secret
+JWT_ACCESS_EXPIRES_IN=15m
+JWT_REFRESH_EXPIRES_IN=30d`}
                 fileName=".env"
                 language="env"
               />
