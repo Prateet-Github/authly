@@ -22,10 +22,9 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="h-full w-full bg-[#0a0a0a] border-r border-white/5 flex flex-col">
-      
+    <aside className="h-full w-full bg-black border-r border-white/5 flex flex-col">
       {/* --- Sidebar Header --- */}
-      <div className="p-6 border-b border-white/5">
+      {/* <div className="p-6 border-b border-white/5">
         <div className="flex items-center gap-2 mb-1">
           <div className="w-6 h-6 rounded bg-indigo-500 flex items-center justify-center">
             <span className="font-bold text-white text-xs">A</span>
@@ -38,16 +37,16 @@ const Sidebar = () => {
           </span>
         </div>
         <p className="text-xs text-slate-500 font-medium">Developer Documentation</p>
-      </div>
+      </div> */}
 
       {/* --- Navigation --- */}
       <nav className="flex-1 overflow-y-auto px-4 py-6 space-y-8">
         {menuGroups.map((group) => (
           <div key={group.label}>
-            <h3 className="mb-3 px-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+            <h3 className="mb-3 px-2   uppercase tracking-wider font-bold bg-linear-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
               {group.label}
             </h3>
-            
+
             <div className="flex flex-col space-y-1">
               {group.items.map((item) => (
                 <a
@@ -66,8 +65,8 @@ const Sidebar = () => {
 
       {/* --- Footer / Support Link --- */}
       <div className="p-4 border-t border-white/5">
-        <a 
-          href="#" 
+        <a
+          href="#"
           className="flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-medium text-slate-300 transition-colors border border-white/5"
         >
           <span>Need Help?</span>

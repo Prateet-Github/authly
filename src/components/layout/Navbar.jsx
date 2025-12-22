@@ -1,13 +1,23 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Github, BookOpen, Layers, Zap, Shield, Terminal, ChevronRight } from "lucide-react";
+import {
+  Menu,
+  X,
+  Github,
+  BookOpen,
+  Layers,
+  Zap,
+  Shield,
+  Terminal,
+  ChevronRight,
+} from "lucide-react";
 import { FaNpm } from "react-icons/fa6";
 import { Logo } from "../common/Logo"; // Assuming you have this
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  
+
   // Check if we are currently inside the documentation section
   const isDocsPage = location.pathname.startsWith("/docs");
 
@@ -41,18 +51,16 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#0a0a0a]/80 backdrop-blur-md supports-backdrop-filter:bg-[#0a0a0a]/60">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        
         {/* --- Left: Brand --- */}
         <div className="flex items-center gap-4">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white shadow-inner group-hover:bg-indigo-500 transition-colors">
-               <Logo size={20} color="white" /> 
-            </div>
-            <span className="text-xl font-bold tracking-tight">
+          <Link to="/" className="flex items-center">
+            <Logo size={50} />
+
+            <span className="font-extrabold hidden md:flex bg-linear-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent text-3xl">
               Authly
             </span>
           </Link>
-          
+
           {/* Breadcrumb / Section Badge (Visible on Desktop) */}
           {isDocsPage && (
             <div className="hidden md:flex items-center text-sm">
@@ -69,7 +77,9 @@ const Navbar = () => {
               <Link
                 to={item.to}
                 className={`text-sm font-medium transition-colors hover:text-indigo-400 ${
-                  location.pathname === item.to ? "text-white" : "text-slate-400"
+                  location.pathname === item.to
+                    ? "text-indigo-400"
+                    : "text-slate-400"
                 }`}
               >
                 {item.label}
@@ -88,7 +98,7 @@ const Navbar = () => {
                 href={item.href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-slate-400 hover:text-white transition-colors"
+                className="text-slate-400 hover:text-indigo-400 hover:scale-110 transition-colors"
                 aria-label={item.label}
               >
                 <item.icon className="h-5 w-5" />
@@ -115,7 +125,6 @@ const Navbar = () => {
       {isOpen && (
         <div className="absolute top-16 left-0 w-full h-[calc(100vh-4rem)] bg-[#0a0a0a] border-b border-white/10 overflow-y-auto md:hidden animate-in slide-in-from-top-2 duration-200">
           <div className="p-4 space-y-6">
-            
             {/* Context: Documentation Links (Only if on Docs page) */}
             {isDocsPage && (
               <div className="space-y-3">
@@ -131,7 +140,9 @@ const Navbar = () => {
                         className="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-300 hover:bg-white/5 hover:text-white transition-all border border-transparent hover:border-white/5"
                       >
                         <link.icon className="h-4 w-4 text-slate-500" />
-                        <span className="text-sm font-medium">{link.label}</span>
+                        <span className="text-sm font-medium">
+                          {link.label}
+                        </span>
                       </a>
                     </li>
                   ))}
@@ -142,40 +153,39 @@ const Navbar = () => {
 
             {/* Context: Main Site Navigation */}
             <div className="space-y-3">
-               <div className="px-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-                  Menu
-               </div>
-               <ul className="space-y-1">
-                 {mainLinks.map((link) => (
-                   <li key={link.label}>
-                     <Link
-                       to={link.to}
-                       className="flex items-center justify-between px-3 py-3 rounded-lg text-slate-300 hover:bg-white/5 hover:text-white transition-all"
-                     >
-                       <span className="text-sm font-medium">{link.label}</span>
-                       <ChevronRight className="h-4 w-4 text-slate-600" />
-                     </Link>
-                   </li>
-                 ))}
-               </ul>
+              <div className="px-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Menu
+              </div>
+              <ul className="space-y-1">
+                {mainLinks.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      to={link.to}
+                      className="flex items-center justify-between px-3 py-3 rounded-lg text-slate-300 hover:bg-white/5 hover:text-white transition-all"
+                    >
+                      <span className="text-sm font-medium">{link.label}</span>
+                      <ChevronRight className="h-4 w-4 text-slate-600" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* Mobile Footer Area */}
             <div className="pt-6 mt-4 border-t border-white/5 flex items-center justify-between px-2">
-               <span className="text-xs text-slate-500">v1.0.0</span>
-               <div className="flex gap-4">
-                 {externalLinks.map((link) => (
-                   <a 
-                    key={link.label} 
+              <span className="text-xs text-slate-500">v1.0.0</span>
+              <div className="flex gap-4">
+                {externalLinks.map((link) => (
+                  <a
+                    key={link.label}
                     href={link.href}
                     className="text-slate-500 hover:text-white transition-colors"
-                   >
-                     <link.icon className="h-5 w-5" />
-                   </a>
-                 ))}
-               </div>
+                  >
+                    <link.icon className="h-5 w-5" />
+                  </a>
+                ))}
+              </div>
             </div>
-
           </div>
         </div>
       )}

@@ -39,7 +39,7 @@ await confirmPasswordReset(authly["http"], {
 });`;
 
   return (
-    <div className="flex h-screen bg-[#050505] text-slate-200 overflow-hidden font-sans selection:bg-indigo-500/30">
+    <div className="flex h-screen bg-black text-slate-200 overflow-hidden font-sans selection:bg-indigo-500/30">
       {/* Sidebar - Fixed on the left */}
       <div className="hidden md:flex flex-col w-64 border-r border-white/5 bg-[#0a0a0a]">
         <Sidebar />
@@ -178,6 +178,77 @@ await confirmPasswordReset(authly["http"], {
             </div>
           </section>
 
+          {/* ================= BACKEND SETUP ================= */}
+          <section id="backend-setup" className="mb-20">
+            <h2 className="text-3xl font-bold text-white mb-6">
+              Backend Setup (Required)
+            </h2>
+
+            <div className="space-y-6 text-slate-400 leading-7">
+              <p>
+                Authly is a{" "}
+                <span className="text-white font-semibold">
+                  headless authentication system
+                </span>
+                . The JavaScript SDK does not include a backend.
+              </p>
+
+              <p>
+                Before using the Authly SDK, you must deploy an
+                Authly-compatible server.
+              </p>
+
+              <div className="p-6 rounded-xl bg-red-500/5 border border-red-500/20">
+                <p className="text-sm text-red-300">
+                  The SDK will not work without a running backend.
+                </p>
+              </div>
+
+              <h3 className="text-xl font-semibold text-white mt-8">
+                Option 1: Self-host Authly Server (Recommended)
+              </h3>
+
+              <p>Clone the official Authly server repository:</p>
+
+              <CodeBlock
+                code={`git clone https://github.com/Prateet-Github/authly-server
+cd authly-server
+npm install`}
+                fileName="terminal"
+                language="bash"
+              />
+
+              <p>
+                Create a <code className="text-indigo-400">.env</code> file:
+              </p>
+
+              <CodeBlock
+                code={`PORT=5001
+MONGO_URI=your_mongodb_url
+JWT_ACCESS_SECRET=your_access_secret
+JWT_REFRESH_SECRET=your_refresh_secret`}
+                fileName=".env"
+                language="env"
+              />
+
+              <p>Start the server:</p>
+
+              <CodeBlock
+                code={`npm run dev`}
+                fileName="terminal"
+                language="bash"
+              />
+
+              <p className="text-sm text-slate-500">
+                Your Authly API will now be available at:
+                <br />
+                <span className="text-white font-mono">
+                  http://localhost:5001/api
+                </span>
+              </p>
+            </div>
+          </section>
+
           {/* ================= GETTING STARTED ================= */}
           <section id="getting-started" className="mb-20">
             <h2 className="text-3xl font-bold text-white mb-6">
@@ -247,6 +318,35 @@ await confirmPasswordReset(authly["http"], {
                   </h3>
                   <CodeBlock code={logoutAllCode} fileName="logoutAll.ts" />
                 </div>
+              </div>
+            </div>
+
+            {/* ================= REVOKE SESSION ================= */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-2">
+                Logout from a Specific Device
+              </h3>
+
+              <p className="text-slate-400 mb-4">
+                Authly allows you to revoke a single session without logging the
+                user out everywhere. This is useful for “Devices” or “Security”
+                settings pages.
+              </p>
+
+              <CodeBlock
+                code={`const sessions = await authly.getSessions();
+
+// Revoke a specific session by ID
+await authly.revokeSession(sessions[1].id);`}
+                fileName="revoke-session.ts"
+                language="typescript"
+              />
+
+              <div className="mt-4 p-4 rounded-lg bg-indigo-500/5 border border-indigo-500/20">
+                <p className="text-sm text-slate-400">
+                  Revoking a session immediately invalidates its refresh token.
+                  The affected device will be logged out on its next request.
+                </p>
               </div>
             </div>
           </section>

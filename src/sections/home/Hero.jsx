@@ -29,9 +29,9 @@ const Hero = () => {
       {/* Top content */}
       <div className="flex flex-col items-center text-center gap-10 px-4">
         {/* Logo + Title */}
-        <div className="flex items-center">
-          <div className="scale-90 md:scale-110">
-            <Logo size={80} />
+        <div className="flex items-center justify-center">
+          <div className="scale-80 md:scale-110">
+            <Logo size={90} />
           </div>
           <h1 className="text-6xl md:text-8xl font-extrabold bg-linear-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
             Authly
