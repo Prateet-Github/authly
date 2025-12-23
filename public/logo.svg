@@ -1,0 +1,28 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="authly-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a78bfa" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M50 15 L75 27 L75 50 C75 67 63 80 50 85 C37 80 25 67 25 50 L25 27 Z"
+    stroke="url(#authly-gradient)"
+    stroke-width="7"
+    fill="none"
+  />
+
+  <rect x="40" y="50" width="20" height="20" rx="4" fill="url(#authly-gradient)" />
+
+  <path
+    d="M42 50 L42 42 C42 36.5 46 32.5 50 32.5 C54 32.5 58 36.5 58 42 L58 50"
+    stroke="url(#authly-gradient)"
+    stroke-width="4"
+    fill="none"
+    stroke-linecap="round"
+  />
+
+  <circle cx="50" cy="57" r="2.5" fill="#0f172a" />
+  <rect x="48.5" y="57" width="3" height="8" rx="1.5" fill="#0f172a" />
+</svg>

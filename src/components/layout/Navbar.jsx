@@ -12,7 +12,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { FaNpm } from "react-icons/fa6";
-import { Logo } from "../common/Logo"; // Assuming you have this
+import { Logo } from "../common/Logo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,12 +26,11 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location.pathname]);
 
-  // --- Navigation Data ---
   const mainLinks = [
+    { label: "Docs", to: "/docs" },
     { label: "Features", to: "/features" },
     { label: "FAQ", to: "/faq" },
     { label: "Security", to: "/security" },
-    { label: "Docs", to: "/docs" }, // Link to switch to docs context
   ];
 
   const externalLinks = [
@@ -117,11 +116,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* ================= MOBILE MENU DRAWER ================= */}
-      {/* Logic: 
-          If isDocsPage -> Show Docs Links (Sidebar) FIRST, then Main Links.
-          Else -> Show Main Links only.
-      */}
+      {/* Mobile Menubar*/}
       {isOpen && (
         <div className="absolute top-16 left-0 w-full h-[calc(100vh-4rem)] bg-[#0a0a0a] border-b border-white/10 overflow-y-auto md:hidden animate-in slide-in-from-top-2 duration-200">
           <div className="p-4 space-y-6">

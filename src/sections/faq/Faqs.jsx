@@ -1,13 +1,4 @@
-import {
-  HelpCircle,
-  Mail,
-  Server,
-  Code,
-  Shield,
-  X,
-  Check,
-  ArrowRight,
-} from "lucide-react";
+import { HelpCircle, Mail, Server, X, Check, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Faqs = () => {
@@ -128,7 +119,7 @@ const Faqs = () => {
           ),
         },
         {
-          q: "Why doesn’t Authly send emails?",
+          q: "Why doesn't Authly send emails?",
           a: (
             <>
               <p className="mb-2">Because infrastructure varies:</p>
@@ -149,9 +140,9 @@ const Faqs = () => {
 
   return (
     <div className="min-h-screen bg-black text-slate-300 font-sans selection:bg-indigo-500/30">
-      {/* ================= HERO ================= */}
-      <div className="pt-10 pb-12 px-6 max-w-7xl mx-auto border-b border-white/5">
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+      {/* HERO */}
+      <div className="pt-10 pb-12 px-6 max-w-7xl mx-auto border-b border-white/10">
+        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 ">
           <span className="bg-linear-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
             FAQ
           </span>
@@ -162,13 +153,13 @@ const Faqs = () => {
         </p>
       </div>
 
-      {/* ================= FAQ GRID ================= */}
+      {/*  FAQ GRID */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {faqCategories.map((category, catIdx) => (
             <div key={catIdx} className="flex flex-col gap-6">
               {/* Category Header */}
-              <h2 className="text-xl font-bold text-white flex items-center gap-2 border-b border-white/5 pb-2">
+              <h2 className="text-xl font-bold text-white flex items-center gap-2  pb-2">
                 {catIdx === 0 && (
                   <HelpCircle className="w-5 h-5 text-indigo-400" />
                 )}
@@ -198,7 +189,7 @@ const Faqs = () => {
         </div>
       </div>
 
-      {/* ================= "WHO SHOULD NOT USE" SECTION ================= */}
+      {/*  "WHO SHOULD NOT USE" SECTION */}
       <div className="bg-black border-y border-white/5 py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row gap-12">
@@ -263,7 +254,7 @@ const Faqs = () => {
         </div>
       </div>
 
-      {/* ================= CTA ================= */}
+      {/* CTA */}
       <div className="py-24 text-center">
         <h2 className="text-2xl font-bold text-white mb-6">Ready to build?</h2>
         <Link

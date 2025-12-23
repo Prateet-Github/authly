@@ -11,7 +11,6 @@ export function Logo({ size = 32, className = "" }) {
         className="shrink-0"
       >
         <defs>
-          {/* LEFT → RIGHT like bg-linear-to-r */}
           <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#a78bfa" />
             <stop offset="100%" stopColor="#6366f1" />
@@ -22,7 +21,7 @@ export function Logo({ size = 32, className = "" }) {
         <path
           d="M50 15 L75 27 L75 50 C75 67 63 80 50 85 C37 80 25 67 25 50 L25 27 Z"
           stroke={`url(#${gradientId})`}
-          strokeWidth="5"
+          strokeWidth="7"
           fill="none"
         />
 
@@ -45,7 +44,7 @@ export function Logo({ size = 32, className = "" }) {
           strokeLinecap="round"
         />
 
-        {/* Keyhole (slightly transparent for depth) */}
+        {/* Keyhole */}
         <circle cx="50" cy="57" r="2.5" fill="rgba(15,23,42,0.6)" />
         <rect
           x="48.5"

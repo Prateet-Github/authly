@@ -41,7 +41,7 @@ await confirmPasswordReset(authly["http"], {
   return (
     <div className="flex h-screen bg-black text-slate-200 overflow-hidden font-sans selection:bg-indigo-500/30">
       {/* Sidebar - Fixed on the left */}
-      <div className="hidden md:flex flex-col w-64 border-r border-white/5 bg-[#0a0a0a]">
+      <div className="hidden md:flex flex-col w-64 border-r border-white/6">
         <Sidebar />
       </div>
 
@@ -50,8 +50,10 @@ await confirmPasswordReset(authly["http"], {
         <div className="max-w-4xl mx-auto px-6 py-12 md:px-12 md:py-16">
           {/* Header */}
           <header className="mb-12 border-b border-white/10 pb-8">
-            <h1 className="md:text-5xl text-4xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-linear-to-r from-white via-slate-200 to-slate-400">
-              Documentation
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+              <span className="bg-linear-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
+                Documentation
+              </span>
             </h1>
             <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
               Learn how to integrate Authly's headless authentication into your
@@ -59,7 +61,7 @@ await confirmPasswordReset(authly["http"], {
             </p>
           </header>
 
-          {/* ================= INTRODUCTION ================= */}
+          {/* INTRODUCTION */}
           <section id="introduction" className="mb-20">
             <h2 className="text-3xl font-bold text-white mb-6">Introduction</h2>
 
@@ -161,7 +163,7 @@ await confirmPasswordReset(authly["http"], {
 
           <hr className="border-white/5 my-12" />
 
-          {/* ================= INSTALLATION ================= */}
+          {/* INSTALLATION  */}
           <section id="installation" className="mb-20">
             <h2 className="text-3xl font-bold text-white mb-6">Installation</h2>
             <div className="space-y-4">
@@ -178,7 +180,7 @@ await confirmPasswordReset(authly["http"], {
             </div>
           </section>
 
-          {/* ================= BACKEND SETUP ================= */}
+          {/* BACKEND SETUP */}
           <section id="backend-setup" className="mb-20">
             <h2 className="text-3xl font-bold text-white mb-6">
               Backend Setup (Required)
@@ -252,7 +254,7 @@ JWT_REFRESH_EXPIRES_IN=30d`}
             </div>
           </section>
 
-          {/* ================= GETTING STARTED ================= */}
+          {/* GETTING STARTED */}
           <section id="getting-started" className="mb-20">
             <h2 className="text-3xl font-bold text-white mb-6">
               Getting Started
@@ -267,7 +269,7 @@ JWT_REFRESH_EXPIRES_IN=30d`}
             />
           </section>
 
-          {/* ================= AUTH FLOWS ================= */}
+          {/* AUTH FLOWS  */}
           <section id="auth" className="mb-20">
             <h2 className="text-3xl font-bold text-white mb-6">
               Authentication
@@ -297,7 +299,7 @@ JWT_REFRESH_EXPIRES_IN=30d`}
             </div>
           </section>
 
-          {/* ================= SESSIONS ================= */}
+          {/*  SESSIONS  */}
           <section id="sessions" className="mb-20">
             <h2 className="text-3xl font-bold text-white mb-6">Sessions</h2>
             <p className="text-slate-400 mb-6">
@@ -324,7 +326,7 @@ JWT_REFRESH_EXPIRES_IN=30d`}
               </div>
             </div>
 
-            {/* ================= REVOKE SESSION ================= */}
+            {/*  REVOKE SESSION  */}
             <div>
               <h3 className="text-lg font-semibold text-white mb-2">
                 Logout from a Specific Device
@@ -354,7 +356,7 @@ await authly.revokeSession(sessions[1].id);`}
             </div>
           </section>
 
-          {/* ================= PASSWORD RESET ================= */}
+          {/* PASSWORD RESET*/}
           <section id="password-reset" className="mb-20">
             <h2 className="text-3xl font-bold text-white mb-6">
               Password Reset
@@ -387,7 +389,7 @@ await authly.revokeSession(sessions[1].id);`}
             </div>
           </section>
 
-          {/* ================= FINAL NOTES ================= */}
+          {/*  FINAL NOTES */}
           <section id="notes" className="pb-24 border-t border-white/5 pt-12">
             <h2 className="text-2xl font-bold text-white mb-6">Final Notes</h2>
             <ul className="space-y-3 text-slate-400">

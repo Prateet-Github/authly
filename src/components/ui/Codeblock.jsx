@@ -1,7 +1,11 @@
-import { useState } from 'react';
-import { Clipboard, Check } from 'lucide-react'; // Assuming you use lucide-react or generic icons
+import { useState } from "react";
+import { Clipboard, Check } from "lucide-react";
 
-const CodeBlock = ({ code, fileName = "example.js", language = "javascript" }) => {
+const CodeBlock = ({
+  code,
+  fileName = "example.js",
+  language = "javascript",
+}) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -10,17 +14,15 @@ const CodeBlock = ({ code, fileName = "example.js", language = "javascript" }) =
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy!', err);
+      console.error("Failed to copy!", err);
     }
   };
 
   return (
     <div className="w-full max-w-3xl mx-auto my-8 overflow-hidden bg-[#0d1117] rounded-xl border border-gray-800 shadow-2xl">
-      
-      {/* --- Header / Title Bar --- */}
+      {/* Header  */}
       <div className="flex items-center justify-between px-4 py-3 bg-[#161b22] border-b border-gray-800">
         <div className="flex items-center gap-2">
-          {/* Optional: Mac-style window dots */}
           <div className="flex gap-1.5 mr-2">
             <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50" />
             <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
@@ -52,17 +54,10 @@ const CodeBlock = ({ code, fileName = "example.js", language = "javascript" }) =
 
       {/* --- Code Content --- */}
       <div className="p-4 overflow-x-auto">
-        <pre className={`font-mono text-sm leading-relaxed text-gray-300 language-${language}`}>
-          <code>
-             {/* NOTE: For real syntax highlighting (colors), 
-                you would typically wrap this children content 
-                with a library like 'react-syntax-highlighter' 
-                or 'prismjs'. 
-                
-                Below is a raw render for the UI structure.
-             */}
-            {code}
-          </code>
+        <pre
+          className={`font-mono text-sm leading-relaxed text-gray-300 language-${language}`}
+        >
+          <code>{code}</code>
         </pre>
       </div>
     </div>

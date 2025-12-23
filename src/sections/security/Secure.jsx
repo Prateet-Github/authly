@@ -91,21 +91,16 @@ const Secure = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-slate-300 font-sans selection:bg-indigo-500/30">
-      {/* ================= HERO ================= */}
-      <div className="pt-10 pb-16 px-6 max-w-7xl mx-auto border-b border-white/5">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 rounded-lg bg-indigo-500/10 border border-indigo-500/20">
-            <ShieldCheck className="w-8 h-8 text-indigo-400" />
-          </div>
-          <span className="text-sm font-bold tracking-wider text-indigo-400 uppercase">
-            Architecture
-          </span>
-        </div>
+    <div className="min-h-screen text-slate-300 font-sans selection:bg-indigo-500/30">
+      {/*  HERO  */}
+      <div className="pt-10 pb-16 px-6 max-w-7xl mx-auto border-b border-white/10">
+   
 
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
-          Security
-        </h1>
+            <span className="bg-linear-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
+              Security
+            </span>
+          </h1>
         <p className="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-3xl">
           Authly is built around{" "}
           <span className="text-white">explicit security boundaries</span>.
@@ -113,7 +108,7 @@ const Secure = () => {
         </p>
       </div>
 
-      {/* ================= CORE PILLARS ================= */}
+      {/* CORE PILLARS  */}
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {securityPillars.map((pillar, idx) => (
@@ -156,7 +151,7 @@ const Secure = () => {
         </div>
       </div>
 
-      {/* ================= INFRASTRUCTURE & SHARED RESPONSIBILITY ================= */}
+      {/* Infra */}
       <div className="bg-black border-y border-white/5 py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row gap-12 items-start">
@@ -231,7 +226,7 @@ const Secure = () => {
         </div>
       </div>
 
-      {/* ================= TRANSPARENCY / NO MAGIC ================= */}
+      {/* Transparency */}
       <div className="py-24 px-6 max-w-3xl mx-auto text-center">
         <div className="inline-flex items-center justify-center p-4 rounded-full bg-white/5 mb-6">
           <Eye className="w-8 h-8 text-slate-200" />

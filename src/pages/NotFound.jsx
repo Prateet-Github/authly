@@ -6,8 +6,6 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-4 text-center relative overflow-hidden">
-      
-      {/* Background Gradients (Subtle Glow) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none" />
 
       {/* Icon */}
@@ -25,7 +23,8 @@ const NotFound = () => {
       </h1>
 
       <p className="max-w-md text-lg text-slate-400 mb-10 relative z-10 leading-relaxed">
-        This page is currently under construction. We are working hard to bring this feature to life. Check back later!
+        This page is currently under construction. We are working hard to bring
+        this feature to life. Check back later!
       </p>
 
       {/* Action Buttons */}

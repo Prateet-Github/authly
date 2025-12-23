@@ -5,10 +5,6 @@ import {
   Mail,
   XCircle,
   CheckCircle2,
-  Lock,
-  Cpu,
-  Server,
-  RefreshCw,
 } from "lucide-react";
 
 const Feat = () => {
@@ -154,8 +150,8 @@ const Feat = () => {
 
   return (
     <div className="min-h-screen bg-black text-slate-300 font-sans selection:bg-indigo-500/30">
-      {/* ================= HERO SECTION ================= */}
-      <div className="relative pt-10 pb-16 px-6 max-w-7xl mx-auto border-b border-white/5">
+      {/*  HERO SECTION */}
+      <div className="relative pt-10 pb-16 px-6 max-w-7xl mx-auto border-b border-white/10">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
             <span className="bg-linear-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
@@ -171,7 +167,7 @@ const Feat = () => {
         </div>
       </div>
 
-      {/* ================= MAIN GRID ================= */}
+      {/*  MAIN GRID  */}
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-8">
         {featureSections.map((section, idx) => (
           <div key={idx} className="flex flex-col gap-6">
@@ -237,7 +233,7 @@ const Feat = () => {
         ))}
       </div>
 
-      {/* ================= "WHAT WE DO NOT DO" SECTION ================= */}
+      {/*  "WHAT WE DO NOT DO" SECTION  */}
       <div className="bg-black border-y border-white/5 py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center justify-center p-3 rounded-full bg-red-500/10 mb-6 ring-1 ring-red-500/20">

@@ -30,9 +30,9 @@ const Hero = () => {
       <div className="flex flex-col items-center text-center gap-10 px-4">
         {/* Logo + Title */}
         <div className="flex items-center justify-center">
-          <div className="scale-80 md:scale-110">
+          {/* <div className="scale-80 md:scale-110">
             <Logo size={90} />
-          </div>
+          </div> */}
           <h1 className="text-6xl md:text-8xl font-extrabold bg-linear-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
             Authly
           </h1>
@@ -47,14 +47,17 @@ const Hero = () => {
         {/* Actions */}
         <div className="flex gap-4">
           {/* Secondary */}
-          <button className="px-6 py-3 cursor-pointer rounded-full border border-purple-400 text-purple-400 font-semibold transition md:hover:bg-purple-400/10">
-            Learn More
+          <button
+            onClick={() => navigate("/features")}
+            className="px-6 py-3 cursor-pointer rounded-full border border-purple-400 text-purple-400 font-semibold transition md:hover:bg-purple-400/10"
+          >
+            View Features
           </button>
 
           {/* Primary */}
           <button
             onClick={handleClick}
-            className="px-6 py-3 cursor-pointer rounded-full bg-linear-to-r from-purple-400 to-indigo-500 text-white font-semibold transition md:hover:shadow-[0_0_30px_rgba(167,139,250,0.6)]"
+            className="px-8 py-3 cursor-pointer rounded-full bg-linear-to-r from-purple-400 to-indigo-500 text-white font-semibold transition md:hover:shadow-[0_0_30px_rgba(167,139,250,0.6)]"
           >
             Get Started
           </button>
