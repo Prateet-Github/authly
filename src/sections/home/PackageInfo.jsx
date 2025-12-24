@@ -24,7 +24,7 @@ const PackageInfo = () => {
               Install the JavaScript SDK
             </p>
             <CodeBlock
-              code={`npm install authly`}
+              code={`npm install authly-sdk`}
               fileName="terminal"
               language="bash"
             />

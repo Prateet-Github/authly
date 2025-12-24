@@ -158,7 +158,7 @@ const Feat = () => {
               Features
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-400 leading-relaxed">
+          <p className="text-xl text-slate-400 leading-relaxed">
             Authly provides authentication{" "}
             <span className="text-white font-medium">infrastructure</span>, not
             abstractions. Every feature exists to give you control, clarity, and

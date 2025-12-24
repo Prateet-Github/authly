@@ -15,25 +15,15 @@ Authly is infrastructure.
 
 ⸻
 
-Documentation
-
-Full documentation, guides, and examples are available at:
-
-https://authlyjs.com
-(or replace with your final domain)
-
-⸻
-
 Installation
 
-npm install authly
-
+npm install authly-sdk
 
 ⸻
 
 Quick Example
 
-import { AuthlyClient } from "authly";
+import { AuthlyClient } from "authly-sdk";
 
 const authly = new AuthlyClient({
   baseUrl: "https://api.yourapp.com/api",

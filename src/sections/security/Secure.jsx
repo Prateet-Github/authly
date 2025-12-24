@@ -94,14 +94,12 @@ const Secure = () => {
     <div className="min-h-screen text-slate-300 font-sans selection:bg-indigo-500/30">
       {/*  HERO  */}
       <div className="pt-10 pb-16 px-6 max-w-7xl mx-auto border-b border-white/10">
-   
-
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
-            <span className="bg-linear-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
-              Security
-            </span>
-          </h1>
-        <p className="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-3xl">
+          <span className="bg-linear-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
+            Security
+          </span>
+        </h1>
+        <p className="text-xl  text-slate-400 leading-relaxed max-w-3xl">
           Authly is built around{" "}
           <span className="text-white">explicit security boundaries</span>.
           Nothing is hidden, abstracted, or silently handled.

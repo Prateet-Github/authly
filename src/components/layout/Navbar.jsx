@@ -34,8 +34,16 @@ const Navbar = () => {
   ];
 
   const externalLinks = [
-    { label: "GitHub", href: "https://github.com/your-repo", icon: Github },
-    { label: "NPM", href: "https://npmjs.com", icon: FaNpm },
+    {
+      label: "GitHub",
+      href: "https://github.com/Prateet-Github/authly-sdk",
+      icon: Github,
+    },
+    {
+      label: "NPM",
+      href: "https://www.npmjs.com/package/authly-sdk",
+      icon: FaNpm,
+    },
   ];
 
   // Duplicate of Sidebar links for Mobile view context

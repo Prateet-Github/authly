@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="border-t border-white/10 bg-black">
@@ -7,28 +9,50 @@ const Footer = () => {
           {/* About */}
           <div className="flex flex-col gap-3">
             <p className="font-semibold text-white">About Authly</p>
-            <p className="text-gray-400 hover:text-purple-400 hover:underline transition-colors cursor-pointer">
+
+            <Link
+              to="/docs"
+              className="text-gray-400 hover:text-purple-400 hover:underline transition-colors"
+            >
               Introduction
-            </p>
+            </Link>
           </div>
 
           {/* Download */}
           <div className="flex flex-col gap-3">
             <p className="font-semibold text-white">Download</p>
-            <p className="text-gray-400 hover:text-purple-400 hover:underline transition-colors cursor-pointer">
+
+            <a
+              href="https://github.com/Prateet-Github/authly-sdk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-purple-400 hover:underline transition-colors"
+            >
               GitHub
-            </p>
-            <p className="text-gray-400 hover:text-purple-400 hover:underline transition-colors cursor-pointer">
+            </a>
+
+            <a
+              href="https://www.npmjs.com/package/authly-sdk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-purple-400 hover:underline transition-colors"
+            >
               NPM
-            </p>
+            </a>
           </div>
 
           {/* Acknowledgements */}
           <div className="flex flex-col gap-3">
             <p className="font-semibold text-white">Acknowledgements</p>
-            <p className="text-gray-400 hover:text-purple-400 hover:underline transition-colors cursor-pointer">
+
+            <a
+              href="https://github.com/Prateet-Github/authly-sdk/graphs/contributors"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-purple-400 hover:underline transition-colors"
+            >
               Contributors
-            </p>
+            </a>
           </div>
         </div>
 

@@ -3,7 +3,7 @@ import CodeBlock from "../../components/ui/Codeblock";
 
 const Docs = () => {
   // --- Code Strings (Unchanged) ---
-  const initCode = `import { AuthlyClient } from "authly";
+  const initCode = `import { AuthlyClient } from "authly-sdk";
 
 const authly = new AuthlyClient({
   baseUrl: "https://api.yourapp.com/api",
@@ -55,7 +55,7 @@ await confirmPasswordReset(authly["http"], {
                 Documentation
               </span>
             </h1>
-            <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
+            <p className="text-xl text-slate-400 leading-relaxed max-w-2xl">
               Learn how to integrate Authly's headless authentication into your
               application.
             </p>
@@ -169,7 +169,7 @@ await confirmPasswordReset(authly["http"], {
             <div className="space-y-4">
               <p className="text-slate-400">Install the Authly SDK via npm:</p>
               <CodeBlock
-                code={`npm install authly`}
+                code={`npm install authly-sdk`}
                 fileName="terminal"
                 language="bash"
               />
