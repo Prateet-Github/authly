@@ -1,6 +1,6 @@
 import Footer from "../components/layout/Footer.jsx";
 import Navbar from "../components/layout/Navbar.jsx";
-import Faqs from "../sections/faq/faqs.jsx";
+import Faqs from "../sections/faq/Faqs.jsx";
 
 const FAQ = () => {
   return (
